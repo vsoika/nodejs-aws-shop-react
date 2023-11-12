@@ -1,3 +1,6 @@
+Link to S3: http://vsoika-bucket.s3-website-eu-west-1.amazonaws.com/
+Link to CloudFront: https://d21cnsyrr4omgj.cloudfront.net/
+
 # React-shop-cloudfront
 
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
