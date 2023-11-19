@@ -20,11 +20,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  
-  "include": ["./*.ts", "src/index.ts", "src/static-site.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }],
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
-  },
+  "include": ["src", "./*.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
