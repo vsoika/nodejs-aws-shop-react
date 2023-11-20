@@ -1,5 +1,5 @@
 Link to S3: http://vsoika-s3-bucket.s3-website-eu-west-1.amazonaws.com/
-Link to CloudFront: https://diifhqs6pvegs.cloudfront.net/
+Link to CloudFront: https://d288mgxc2an23w.cloudfront.net/
 
 
 # React-shop-cloudfront

@@ -10,6 +10,7 @@ import { useAvailableProducts } from "~/queries/products";
 
 export default function Products() {
   const { data = [], isLoading } = useAvailableProducts();
+  console.log("mock data from API: ", data);
 
   if (isLoading) {
     return <Typography>Loading...</Typography>;
