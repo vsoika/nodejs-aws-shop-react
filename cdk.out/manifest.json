@@ -1,0 +1,119 @@
+{
+  "version": "35.0.0",
+  "artifacts": {
+    "MyStaticWebsite.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "MyStaticWebsite.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "MyStaticWebsite": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/eu-west-1",
+      "properties": {
+        "templateFile": "MyStaticWebsite.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-eu-west-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-eu-west-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-eu-west-1/892897d843771d9c527d8d97254e6f997bbd5d54afc7a67a3fcb753dfa2f78d0.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "MyStaticWebsite.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-eu-west-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "MyStaticWebsite.assets"
+      ],
+      "metadata": {
+        "/MyStaticWebsite/MyStaticWebsite/JSCC-OAI/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyStaticWebsiteJSCCOAI204E0D9B"
+          }
+        ],
+        "/MyStaticWebsite/MyStaticWebsite/MyStaticBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyStaticWebsiteMyStaticBucketB626DA7A"
+          }
+        ],
+        "/MyStaticWebsite/MyStaticWebsite/MyStaticBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyStaticWebsiteMyStaticBucketPolicy66520EAC"
+          }
+        ],
+        "/MyStaticWebsite/MyStaticWebsite/JSCC-distribution/CFDistribution": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyStaticWebsiteJSCCdistributionCFDistributionBD749F1E"
+          }
+        ],
+        "/MyStaticWebsite/MyStaticWebsite/JSCC-Bucket-Deployment/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyStaticWebsiteJSCCBucketDeploymentAwsCliLayer90DB550F"
+          }
+        ],
+        "/MyStaticWebsite/MyStaticWebsite/JSCC-Bucket-Deployment/CustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyStaticWebsiteJSCCBucketDeploymentCustomResourceC35D1AA4"
+          }
+        ],
+        "/MyStaticWebsite/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+          }
+        ],
+        "/MyStaticWebsite/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF"
+          }
+        ],
+        "/MyStaticWebsite/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536"
+          }
+        ],
+        "/MyStaticWebsite/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/MyStaticWebsite/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/MyStaticWebsite/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "MyStaticWebsite"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
