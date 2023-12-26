@@ -27,12 +27,18 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
     if (!file) return;
     console.log("uploadFile to", url);
 
+    const token = localStorage.getItem("authorization_token");
+    const authHeader = token ? { Authorization: `Basic ${token}` } : undefined;
+
     // Get the presigned URL
     const response = await axios({
       method: "GET",
       url: url,
       params: {
         name: encodeURIComponent(file.name),
+      },
+      headers: {
+        ...authHeader,
       },
     });
 
@@ -46,6 +52,7 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
     console.log("Result: ", result);
     setFile(undefined);
   };
+
   return (
     <Box>
       <Typography variant="h6" gutterBottom>
