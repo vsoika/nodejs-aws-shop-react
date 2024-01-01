@@ -6,11 +6,21 @@ import { CartItem } from "~/models/CartItem";
 
 export function useCart() {
   return useQuery<CartItem[], AxiosError>("cart", async () => {
-    const res = await axios.get<CartItem[]>(`${API_PATHS.cart}/profile/cart`, {
-      headers: {
-        Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
-      },
-    });
+    const res = await axios.get<CartItem[] | any>(
+      `${API_PATHS.cart}/profile/cart`,
+      {
+        headers: {
+          Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
+        },
+      }
+    );
+
+    console.log("useCart response:", res);
+
+    //condition is needed because of inconsistency with BE cart-api implementation
+    if (res.data.length !== 0 && res.data[0].cart)
+      return (res.data as any).cart.items;
+
     return res.data;
   });
 }

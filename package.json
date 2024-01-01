@@ -8,7 +8,7 @@
     "preview": "npm run build && vite preview",
     "cdk": "cdk",
     "cdk:bootstrap": "cdk bootstrap",
-    "cdk:deploy": "cdk deploy --all --require-approval never",
+    "cdk:deploy": "npm run build && cdk deploy --all --require-approval never",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
