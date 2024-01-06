@@ -98,7 +98,7 @@ export default function PageCart() {
           </Step>
         ))}
       </Stepper>
-      {isCartEmpty && <CartIsEmpty />}
+      {isCartEmpty && activeStep !== CartStep.Success ? <CartIsEmpty /> : null}
       {!isCartEmpty && activeStep === CartStep.ReviewCart && (
         <ReviewCart items={data} />
       )}

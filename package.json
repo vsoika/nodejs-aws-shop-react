@@ -8,7 +8,7 @@
     "preview": "npm run build && vite preview",
     "cdk": "cdk",
     "cdk:bootstrap": "cdk bootstrap",
-    "cdk:deploy": "cdk deploy --all --require-approval never",
+    "cdk:deploy": "npm run build && cdk deploy --all --require-approval never",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
@@ -29,7 +29,7 @@
     "react-dom": "^18.2.0",
     "react-query": "^3.39.1",
     "react-router-dom": "^6.3.0",
-    "yup": "^0.32.11"
+    "yup": "^1.3.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",

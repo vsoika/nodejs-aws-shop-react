@@ -27,7 +27,12 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
     if (!file) return;
     console.log("uploadFile to", url);
 
-    const token = localStorage.getItem("authorization_token");
+    // const token = localStorage.getItem("authorization_token");
+
+    // hardcode token value because of usage same token value
+    // for different services which are not compatible by types to each other
+    const token = "dnNvaWthPVRFU1RfUEFTU1dPUkQ=";
+
     const authHeader = token ? { Authorization: `Basic ${token}` } : undefined;
 
     // Get the presigned URL
