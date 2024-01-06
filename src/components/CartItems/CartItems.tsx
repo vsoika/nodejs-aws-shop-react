@@ -29,6 +29,7 @@ export default function CartItems({ items, isEditable }: CartItemsProps) {
             <ListItemText
               primary={cartItem.product.title}
               secondary={cartItem.product.description}
+              sx={{ padding: (theme) => theme.spacing(0, 2) }}
             />
             <Typography variant="body2">
               {formatAsPrice(cartItem.product.price)} x {cartItem.count} ={" "}

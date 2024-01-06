@@ -5,6 +5,7 @@ import Add from "@mui/icons-material/Add";
 import Remove from "@mui/icons-material/Remove";
 import IconButton from "@mui/material/IconButton";
 import { useCart, useInvalidateCart, useUpsertCart } from "~/queries/cart";
+import { useCallback } from "react";
 
 type AddProductToCartProps = {
   product: Product;
@@ -16,21 +17,24 @@ export default function AddProductToCart({ product }: AddProductToCartProps) {
   const invalidateCart = useInvalidateCart();
   const cartItem = data.find((i) => i.product.id === product.id);
 
-  const addProduct = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { imageUrl, ...restProductData } = product;
+
+  const addProduct = useCallback(() => {
     upsertCart(
-      { product, count: cartItem ? cartItem.count + 1 : 1 },
+      { product: restProductData, count: cartItem ? cartItem.count + 1 : 1 },
       { onSuccess: invalidateCart }
     );
-  };
+  }, [restProductData, cartItem]);
 
-  const removeProduct = () => {
-    if (cartItem) {
+  const removeProduct = useCallback(() => {
+    if (cartItem && cartItem.count !== 0) {
       upsertCart(
         { ...cartItem, count: cartItem.count - 1 },
         { onSuccess: invalidateCart }
       );
     }
-  };
+  }, [cartItem]);
 
   return cartItem ? (
     <>
